@@ -1,0 +1,66 @@
+{% extends 'layout.html.twig' %}
+{% block mycss %}
+  <style>
+      .card {
+        padding:20px;
+          margin-bottom: 30px;
+      }
+    .like {
+    font-size: 1.5rem;
+    }
+  </style>
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+{% endblock %}
+{% block body %}
+    <div class="container">
+        <div class="row">
+            {% for produit in produits %}
+            <div class="col-12 col-sm-8 col-md-4 col-lg-4" style="width: 250px;height: 450px;margin-left: 180px;margin-bottom: 150px;border:2px black solid;border-radius: 20px;padding-right:70px;">
+                <div class="card" style="">
+                    <img class="card-img" src="{{ asset('uploads/Products/'~produit.image) }}" style="height: 110px;width: 180px;" alt="Vans">
+                    <div class="card-img-overlay d-flex justify-content-end">
+                        <a href="{{ path('produit_show', { 'id': produit.id }) }}" class="card-link text-danger like">
+                            <i class="fa fa-heart" aria-hidden="true" style="color:red;"></i>
+                        </a>
+                    </div>
+                    <div class="card-body" >
+                        <h4 class="card-title">{{ produit.nom }}</h4>
+                        <h6 class="card-subtitle mb-2 text-muted">{{ produit.modele }}</h6>
+                     <div class="buy d-flex justify-content-between align-items-center">
+                        <p class="card-text">
+                            {{ produit.description }}
+                     </div>
+                        <div class="options d-flex flex-fill">
+                            <select class="custom-select mr-1">
+                                <option selected>Color</option>
+                                <option value="1">Green</option>
+                                <option value="2">Blue</option>
+                                <option value="3">Red</option>
+                            </select>
+                            <select class="custom-select ml-1">
+                                <option selected>Size</option>
+                                <option value="1">41</option>
+                                <option value="2">42</option>
+                                <option value="3">43</option>
+                            </select>
+                        </div>
+                        <div class="buy d-flex justify-content-between align-items-center">
+                            <div class="price text-success"><h5 class="mt-4">${{ produit.prix }}</h5></div>
+                            <a href="{{ path('produit_show', { 'id': produit.id }) }}" class="btn btn-danger mt-3"><i class="fa fa-shopping-cart"></i> Add to Cart</a>
+                            <a href="{{ path('rmp', { 'id': produit.id }) }}" class="btn btn-danger mt-3"><i class="fa fa-trash"></i> Delete</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+
+
+
+{% endblock %}

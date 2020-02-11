@@ -1,0 +1,42 @@
+{% extends 'layout.html.twig' %}
+
+{% block body %}
+
+    <h1>Sous_categories list</h1>
+
+    <table id="1" style="margin-left:50px;" >
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nomsouscat</th>
+                <th>Typesouscat</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for sous_categorie in sous_categories %}
+            <tr>
+                <td><a href="{{ path('sous_categorie_show', { 'id': sous_categorie.id }) }}">{{ sous_categorie.id }}</a></td>
+                <td>{{ sous_categorie.nomSousCat }}</td>
+                <td>{{ sous_categorie.typeSousCat }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('sous_categorie_show', { 'id': sous_categorie.id }) }}">Afficher</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('sous_categorie_edit', { 'id': sous_categorie.id }) }}">Modifier</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('sous_categorie_new') }}">Cree une sous_categorie</a>
+        </li>
+    </ul>
+{% endblock %}

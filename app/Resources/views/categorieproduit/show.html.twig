@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Categorieproduit</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ categorieProduit.id }}</td>
+            </tr>
+            <tr>
+                <th>Nomcategorie</th>
+                <td>{{ categorieProduit.nomCategorie }}</td>
+            </tr>
+            <tr>
+                <th>Typecategorie</th>
+                <td>{{ categorieProduit.typeCategorie }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('categorieproduit_index') }}">Categorieproduit</a>
+        </li>
+        <li>
+            <a href="{{ path('categorieproduit_edit', { 'id': categorieProduit.id }) }}">Modifier</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

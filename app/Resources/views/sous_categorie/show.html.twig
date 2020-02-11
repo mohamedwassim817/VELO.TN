@@ -1,0 +1,36 @@
+{% extends 'layout.html.twig' %}
+
+{% block body %}
+    <h1>Sous_categorie</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ sous_categorie.id }}</td>
+            </tr>
+            <tr>
+                <th>Nomsouscat</th>
+                <td>{{ sous_categorie.nomSousCat }}</td>
+            </tr>
+            <tr>
+                <th>Typesouscat</th>
+                <td>{{ sous_categorie.typeSousCat }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('sous_categorie_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('sous_categorie_edit', { 'id': sous_categorie.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

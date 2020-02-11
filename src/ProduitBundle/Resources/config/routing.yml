@@ -1,0 +1,12 @@
+produit_homepage:
+    path:     /
+    defaults: { _controller: ProduitBundle:Default:index }
+home:
+    path:     /
+    defaults: { _controller: ProduitBundle:Produit:index }
+rmp:
+    path:     Prod/{id}
+    defaults: { _controller: ProduitBundle:Produit:RemoveProd }
+rmSc:
+    path:     Sc/{id}
+    defaults: { _controller: ProduitBundle:Sous_categorie:RemoveSc }

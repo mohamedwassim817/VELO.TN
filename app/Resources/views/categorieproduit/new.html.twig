@@ -1,0 +1,18 @@
+{% extends 'layout.html.twig' %}
+
+{% block body %}
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="{{ asset('assets/css/elisyam-1.5.css') }}">
+    <h1>Categorieproduit creation</h1>
+
+    {{ form_start(form) }}
+        {{ form_widget(form) }}
+        <input type="submit" value="Create" />
+    {{ form_end(form) }}
+
+    <ul>
+        <li>
+            <a href="{{ path('categorieproduit_index') }}">consulter la liste des Categorieproduit</a>
+        </li>
+    </ul>
+{% endblock %}

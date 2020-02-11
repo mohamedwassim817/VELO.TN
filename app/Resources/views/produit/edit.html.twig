@@ -1,0 +1,23 @@
+{% extends 'layout.html.twig' %}
+
+{% block body %}
+    <div class="container">
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="{{ asset('assets/css/elisyam-1.5.css') }}">
+    <h1>Modifier Produit</h1>
+
+    {{ form_start(edit_form) }}
+        {{ form_widget(edit_form) }}
+        <input type="submit" value="Modifier" />
+    {{ form_end(edit_form) }}
+
+    <ul>
+        <li>
+            <a href="{{ path('produit_index') }}">Consulter la liste des produits</a>
+        </li>
+        <li>
+            <a href="{{ path('rmp', { 'id': produit.id }) }} "> Delete</a>
+        </li>
+    </ul>
+    </div>
+{% endblock %}
